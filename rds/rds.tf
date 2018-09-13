@@ -34,12 +34,14 @@ resource "opentelekomcloud_rds_instance_v1" "instance" {
     type            = "COMMON"
     size            = "${var.rds_db_size}"
   }
+
   nics {
-    subnetid        = "${openstack_networking_subnet_v2.subnet.id}"
+    subnetid        = "${openstack_networking_network_v2.network.id}"
   }
 
   securitygroup {
     id              = "${openstack_compute_secgroup_v2.secgrp_rds.id}"
   }
-}
 
+  depends_on        = ["openstack_networking_router_interface_v2.interface"]
+}

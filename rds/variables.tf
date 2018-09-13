@@ -55,7 +55,7 @@ variable "rds_db_port" {
 
 ### RDS password
 variable "rds_db_root_user_pw" {
-  default = "Passwort"
+  default = "Sicheres!Passwort123"
 }
 
 ### RDS Backup retention time
